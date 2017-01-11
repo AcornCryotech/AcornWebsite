@@ -230,4 +230,21 @@ jQuery(function($) {'use strict';
 	}
 	google.maps.event.addDomListener(window, 'load', initialize_map);
 
+
+	// Analytics Tracking
+	$('#reserve-form').submit(function(event) {
+		// Check if GA loaded
+		if(window.ga && ga.create) {
+			var self = this;
+
+			// Don't submit the form until after GA has tracked the event
+			event.preventDefault();
+
+			ga('send', 'event', 'button', 'click', 'reserve-kit', {'hitCallback':
+				function () {
+					self.submit();
+				}
+			});
+		}
+	});
 });
