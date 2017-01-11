@@ -238,7 +238,7 @@ jQuery(function($) {'use strict';
 			var self = this;
 
 			// Don't submit the form until after GA has tracked the event
-			e.preventDefault();
+			event.preventDefault();
 
 			ga('send', 'event', 'button', 'click', 'reserve-kit', {'hitCallback':
 				function () {
