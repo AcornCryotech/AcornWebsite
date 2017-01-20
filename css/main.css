@@ -951,10 +951,16 @@ ul.nostyle i {
   background: rgba(69, 174, 214, 0.3);
   z-index: 1;
 }
+@media only screen and (max-width: 768px) {
+  #contact .container-wrapper {
+    position: static;
+  }
+}
 #contact .contact-form {
   background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 #contact .contact-form h3 {
   margin-top: 0;
