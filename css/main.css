@@ -114,7 +114,7 @@ hr {
   background: #d03A0f;
 }
 .column-title {
-  margin-top: 0;
+  margin-top: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
   margin-bottom: 15px;
@@ -349,6 +349,8 @@ ul.nostyle i {
   color: #212E61;
   padding-top: 70px;
   padding-bottom: 70px;
+  padding-left: 40px;
+  padding-left: 40px;
 }
 #cta2 .btn {
   margin-top: 10px;
