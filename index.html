@@ -58,9 +58,6 @@
                           <a href="#blog" onclick="ga('event', 'button', 'click', 'nav-blog')">Blog</a>
                         </li>
                         <li class="scroll">
-                          <a href="#meet-team" onclick="ga('event', 'button', 'click', 'nav-team')">Team</a>
-                        </li>
-                        <li class="scroll">
                           <a href="#contact" onclick="ga('event', 'button', 'click', 'nav-contact)">Contact</a>
                         </li>
                     </ul>
@@ -75,21 +72,57 @@
                 <div class="col-sm-6 main-slider-preserve">
                     <div class="carousel-content">
                         <h2><span>Preserve</span> your cells today</h2>
-                        <p>As you age, your cells are aging too. Don't wait - it's just $20 to reserve your spot.</p>
+                        <p>As you age, your cells are aging too. Don't wait - it's just $20 to reserve your spot. </p>
                         <!--<a class="btn btn-reserve btn-lg" href="#">Reserve Your Spot</a>-->
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="reserve-form">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="hosted_button_id" value="8FK9Y9MYSKPKE">
-                                    <div class="6u 12u$(medium)">
-                                        <input type="checkbox" required name="terms" id="demo-copy" name="demo-copy">
-                                        <label for="demo-copy"> I have read and agree to the <a href="http://www.acorncryotech.com/terms_conditions.html">  Terms and Conditions. </a> </label>
-                                    </div>
-                                <input type="submit" class="btn btn-reserve btn-lg" value="Reserve Your Kit" />
-                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
+<!--
+                        <p> <i> Reservations currenlty only available for residents of Canada and the United States </i></p>
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="reserve-form">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="8FK9Y9MYSKPKE">
+                <div class="6u 12u$(medium)">
+                    <input type="checkbox" required name="terms" id="demo-copy" name="demo-copy">
+                    <label for="demo-copy"> I have read and agree to the <a href="http://www.acorncryotech.com/terms_conditions.html">  Terms and Conditions. </a> </label>
+                </div>
+            <input type="submit" class="btn btn-reserve btn-lg" value="Reserve Your Kit" />
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+-->
+                        
+                        <?php
+                            require_once "/home/acorncryotech/public_html/country-block.inc.php";
+                            // Block Canada, United States, and Congo
+                            $countries = array("CA","US");
+
+                            // Api Key
+                            $api_key = "8bfe4136611298bfa6fd5dd31b509404fb2f76f2b53d2b88297a0defb6c3d0c0";
+
+$countryBlock = new countryBlock($countries, $api_key);
+if(!$countryBlock){
+    ?>
+                        <p> <i> Reservations currenlty only available for residents of Canada and the United States </i></p>
+    <?php
+}
+else { // country isn't blocked ?>
+    <html>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="reserve-form">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="8FK9Y9MYSKPKE">
+                <div class="6u 12u$(medium)">
+                    <input type="checkbox" required name="terms" id="demo-copy" name="demo-copy">
+                    <label for="demo-copy"> I have read and agree to the <a href="http://www.acorncryotech.com/terms_conditions.html">  Terms and Conditions. </a> </label>
+                </div>
+            <input type="submit" class="btn btn-reserve btn-lg" value="Reserve Your Kit" />
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </html><?php
+}
+?>
+
+
                     </div>
                 </div>
-                <div class="col-sm-6">
+                 <div class="col-sm-6">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dIMh7F90jlo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -102,7 +135,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Take full advantage of future tech</h2>
-                <p class="text-center wow fadeInDown">Future life-extending medical treatments are still decades away from widespread use. The problem?<br> They won't work as well on old cells.</p>
+                <p class="text-center wow fadeInDown">Future life-extending medical technologies are still decades away from widespread use. The problem? <br> They won't work as well on old cells.</p>
             </div>
             <div class="row">
                 <!--<div class="col-sm-6">
@@ -397,14 +430,14 @@
                     <h3 class="column-title">Our Video</h3>
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dIMh7F90jlo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="560" height="315"  src="https://www.youtube.com/embed/dIMh7F90jlo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
 
                 <div class="col-sm-6 wow fadeInRight">
                     <h3 class="column-title">Our Story</h3>
                     <p>Acorn was born out of the University of Waterloo's genetic engineering team. Starting out in Velocity Science on-campus, we have sinced moved into the Garage and accumulated funding from AC Jumpstart, Communitech, Velocity and YC Fellowship. On top of that, we are a part of the Creative Destruction Lab and have ties with many investors, scientists, and advisors.</p>
-<br>
+                    <br>
                     <p>We're passionate about the future of biotechnology and can't wait for what's yet to come. Our dream starts with preservation, but eventually, we hope to expand and take part in further research ourselves.</p>
 <!--
                     <div class="row">
@@ -979,6 +1012,7 @@
             zoom: 8
             });
         }
+
     </script>
         <div class="container-wrapper">
             <div class="container">
@@ -1000,7 +1034,7 @@
                                     <input type="text" name="name" class="form-control" placeholder="Name" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="email" class="form-control" placeholder="Email" required="required">
+                                    <input type="text" name="visitor_email" class="form-control" placeholder="Email" required="required">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="subject" class="form-control" placeholder="Subject" required="required">
@@ -1021,7 +1055,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2016 Acorn Cryotech
+                    &copy; 2017 Acorn Cryotech
                 </div>
                 <div class="col-sm-6">
                     <ul class="social-icons">

@@ -1,7 +1,7 @@
 <?php
   echo($_POST);
   $name = $_POST['name'];
-  $visitor_email = $_POST['email'];
+  $visitor_email = $_POST['visitor_email'];
   $subject = $_POST['subject'];
   $message = $_POST['message'];
   $email_from = 'acorncryotech@gmail.com';
@@ -10,6 +10,7 @@
  
   $email_body = "You have received a new message from the user $name, with subject line $subject.\n".
                             "Here is the message:\n $message \n".
+                            "Here is their email:\n $visitor_email \n".
  
   $to = "acorncryotech@gmail.com";
  
