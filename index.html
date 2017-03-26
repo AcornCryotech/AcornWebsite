@@ -75,6 +75,7 @@
                         <p>As you age, your cells are aging too. Don't wait - it's just $20 to reserve your spot. </p>
                         
                         <?php
+                            include '/home/acorncryotech/public_html/ChromePhp.php';
                             require_once "/home/acorncryotech/public_html/country-block.inc.php";
                             // Block Canada, United States, and Congo
                             $countries = array("CA","US");
@@ -83,6 +84,11 @@
                             $api_key = "8bfe4136611298bfa6fd5dd31b509404fb2f76f2b53d2b88297a0defb6c3d0c0";
 
 $countryBlock = new countryBlock($countries, $api_key);
+                            ChromePhp::log($countryBlock);
+                            echo $countryBlock;
+                            ChromePhp::warn("This is a warning message " ) ;
+                            ChromePhp::error("This is an error message" ) ;
+                            ChromePhp::log($_SERVER);
 if(!$countryBlock){
     ?>
                         <p> <i> Reservations currenlty only available for residents of Canada and the United States </i></p>
